@@ -5,27 +5,25 @@ namespace CalcCirculo
 {
     class Program
     {
-        static double Pi = 3.14;
-        static void Main (string[] args)
+        static void Main(string[] args)
+
         {
-            Console.WriteLine("Entre com o valor do raio:");
+            Calculadora calc = new Calculadora();
+
+            //Pede para o usuário digitar o tamanho do circulo desejado
+            Console.WriteLine("Entre com o valor do raio");
+            //Joga os dados para a classe Calculadora e efetua o calculo
             double raio = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double circ = Circuferencia(raio);
-            double volume = Volume(raio);
+            double circ = Calculadora.Circunferencia(raio);
+            double volume = Calculadora.Volume(raio);
 
-            Console.WriteLine("Circuferência:" + circ.ToString("F2", CultureInfo.InvariantCulture));
-            Console.WriteLine("Volume:" + volume.ToString("F2", CultureInfo.InvariantCulture));
-            Console.WriteLine("Valor de PI:" + Pi.ToString("F2", CultureInfo.InvariantCulture));
-        }
-        static double Circuferencia(double r)
-        {
-            return 2.0 * Pi * r;
+            //Printa no console o resultado da area do circulo
+            Console.WriteLine("Circunferencia: " + circ.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Volume: " + volume.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Valor de PI: " + Calculadora.Pi.ToString("F2", CultureInfo.InvariantCulture));
         }
 
-        static double Volume(double r)
-        {
-            return 4.0 / 3.0 * Pi * r * r * r;
-        }
     }
 }
+
